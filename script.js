@@ -27,7 +27,7 @@ function getPlayerChoice () {
     return playerChoice;
 }
 
-function playOneRound(computerSelection, playerSelection) {
+function playOneRound(playerSelection, computerSelection) {
     let winnerOfRound = "";
 
     if (computerSelection === playerSelection) {
@@ -42,7 +42,7 @@ function playOneRound(computerSelection, playerSelection) {
             winnerOfRound = playerSelection === "scissors" ? "player" : "computer";
             break;
         case "scissors":
-            winnerOfRound = playerSelection === "rock" ? "player" : "computer;"
+            winnerOfRound = playerSelection === "rock" ? "player" : "computer";
             break;
     }
 
@@ -54,7 +54,7 @@ function game() {
     let playerScore = 0;
 
     while (computerScore < 5 && playerScore < 5) {
-        let result = playOneRound(getComputerChoice(), getPlayerChoice());
+        let result = playOneRound(getPlayerChoice(), getComputerChoice());
 
         if (result === "computer") {
             console.log("Computer wins this round.");
@@ -65,5 +65,8 @@ function game() {
         } else {
             console.log("It's a draw.");
         }
+
+        console.log("Your score is: ", playerScore);
+        console.log("Computer score: ", computerScore);
     }
 }
